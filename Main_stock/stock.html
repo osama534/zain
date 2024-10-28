@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة المخزن</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+        .card {
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card:hover {
+            transform: scale(1.05);
+            transition: 0.3s;
+        }
+        .card-body h5 {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">إدارة المخزن</h1>
+        <div class="row justify-content-center">
+            <div class="form-row row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">اضافه مسئول المخزن</h5>
+                            <a href="main_stock/add_representative.php" class="btn btn-warning" target="_blank">اذهب</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">إضافة منتج</h5>
+                            <a href="main_stock/add_product.php" class="btn btn-primary" target="_blank">اذهب</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">المنتجات المتهالكة</h5>
+                            <a href="main_stock/exported_products.php" class="btn btn-danger" target="_blank">اذهب</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="form-row row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">منتجات تم تسليمها</h5>
+                            <a href="main_stock/exported_products.php" class="btn btn-danger" target="_blank">اذهب</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">منتجات تم كنسلتها</h5>
+                            <a href="main_stock/warehouse_movements.php" class="btn btn-warning">اذهب</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">حركة المخزن</h5>
+                            <a href="main_stock/warehouse_movements.php" class="btn btn-warning" target="_blank">اذهب</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

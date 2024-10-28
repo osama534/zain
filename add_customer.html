@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer and Product Management</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .form-section {
+            margin-bottom: 30px;
+        }
+        .form-row {
+            margin-bottom: 15px;
+        }
+        h2 {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        h4 {
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+        .alert {
+            margin-bottom: 20px;
+        }
+        .total-price {
+            font-weight: bold;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Add Customer and Products</h2>
+        
+        <!-- Customer and Products Form -->
+         
+        <form action="process.php" method="post">
+            <div class="form-section">
+                <h4>Customer Information</h4>
+                <div class="form-row row">
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="contract_number" id="contract_number" placeholder="Contract Number" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="client_name" id="client_name" placeholder="Client Name" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="phone_number" id="phone_number" placeholder="Phone Number" required>
+                    </div>
+                </div>
+                <div class="form-row row">
+                    <div class="col-md-4">
+                        <input type="date" class="form-control" name="activation_date" id="activation_date" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="area" id="area" placeholder="Area" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="contract_notes" id="contract_notes" placeholder="Notes">
+                    </div>
+                </div>
+                <div class="form-row row">
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" name="address" id="address" placeholder="Address" required>
+                    </div>
+                    <div class="col-md-4">
+                        <select class="form-control" name="change_every" id="change_every" required>
+                            <option value="" disabled selected>Change Every</option>
+                            <option value="1week">1 week</option>
+                            <option value="2weeks">2 weeks</option>
+                            <option value="4weeks">4 weeks</option>
+                        </select>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h4>Products</h4>
+                <div class="form-row row">
+                    <div class="col-md-4">
+                        <input type="number" class="form-control" name="mop_18" id="mop_18" placeholder="Mop (18)" min="0">
+                    </div>
+                    <div class="col-md-4">
+                        <input type="number" class="form-control" name="price_mop_18" id="price_mop_18" placeholder="Price Mop (18)" step="0.01" min="0">
+                    </div>
+                </div>
+                <div class="form-row row">
+                    <div class="col-md-4">
+                        <input type="number" class="form-control" name="mop_36" id="mop_36" placeholder="Mop (36)" min="0">
+                    </div>
+                    <div class="col-md-4">
+                        <input type="number" class="form-control" name="price_mop_36" id="price_mop_36" placeholder="Price_Mop (36)" step="0.01" min="0">
+                    </div>
+                </div>
+                <div class="form-row row">
+                    <div class="col-md-4">
+                        <input type="number" class="form-control" name="mit" id="mit" placeholder="Mit" min="0">
+                    </div>
+                    <div class="col-md-4">
+                        <input type="number" class="form-control" name="price_mit" id="price_mit" placeholder="Price Mit" step="0.01" min="0">
+                    </div>
+                </div>
+                <div class="form-row row">
+                    <div class="col-md-4">
+                        <input type="number" class="form-control" name="hd_1" id="hd_1" placeholder="HD 1" min="0">
+                    </div>
+                    <div class="col-md-4">
+                        <input type="number" class="form-control" name="price_hd_1" id="price_hd_1" placeholder="Price HD 1" step="0.01" min="0">
+                    </div>
+                </div>
+                <div class="form-row row">
+                    <div class="col-md-4">
+                        <input type="number" class="form-control" name="hd_2" id="hd_2" placeholder="HD 2" min="0">
+                    </div>
+                    <div class="col-md-4">
+                        <input type="number" class="form-control" name="price_hd_2" id="price_hd_2" placeholder="Price HD 2" step="0.01" min="0">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-12 total-price">
+                        Total Price: <span id="total_price">$0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save All</button>
+        </form>
+    </div>
+
+    <script>
+        function calculateTotal() {
+            const mop18Qty = parseFloat(document.getElementById('mop_18').value) || 0;
+            const mop18Price = parseFloat(document.getElementById('price_mop_18').value) || 0;
+            const mop36Qty = parseFloat(document.getElementById('mop_36').value) || 0;
+            const mop36Price = parseFloat(document.getElementById('price_mop_36').value) || 0;
+            const mitQty = parseFloat(document.getElementById('mit').value) || 0;
+            const mitPrice = parseFloat(document.getElementById('price_mit').value) || 0;
+            const hd1Qty = parseFloat(document.getElementById('hd_1').value) || 0;
+            const hd1Price = parseFloat(document.getElementById('price_hd_1').value) || 0;
+            const hd2Qty = parseFloat(document.getElementById('hd_2').value) || 0;
+            const hd2Price = parseFloat(document.getElementById('price_hd_2').value) || 0;
+
+            const totalPrice = (mop18Qty * mop18Price) + (mop36Qty * mop36Price) + (mitQty * mitPrice) + (hd1Qty * hd1Price) + (hd2Qty * hd2Price);
+            document.getElementById('total_price').textContent = `$${totalPrice.toFixed(2)}`;
+        }
+
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('input', calculateTotal);
+        });
+
+        // Initialize the total price on page load
+        calculateTotal();
+    </script>
+</body>
+</html>

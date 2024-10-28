@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contract Entry Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <form action="Notes/save_notes.php" method="POST">
+        <div class="form-group">
+            <label for="contract_number">Contract Number</label>
+            <input type="text" id="contract_number" name="contract_number" required>
+        </div>
+        <div class="form-group">
+            <label for="client_name">Client's Name</label>
+            <input type="text" id="client_name" name="client_name" required>
+        </div>
+        <div class="form-group">
+            <label for="representative_name">Representative's Name</label>
+            <input type="text" id="representative_name" name="representative_name" required>
+        </div>
+        <div class="form-group">
+            <label for="next_change_date">Date of Next Change</label>
+            <input type="date" id="next_change_date" name="next_change_date" required>
+        </div>
+        <div class="form-group">
+            <label for="notes">Notes</label>
+            <textarea id="notes" name="notes" rows="4"></textarea>
+        </div>
+        <button type="submit" class="submit-button">Save Data</button>
+    </form>
+</div>
+
+</body>
+</html>
